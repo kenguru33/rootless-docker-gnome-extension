@@ -1,0 +1,7 @@
+{
+  "uuid": "rootless-docker@glimt",
+  "name": "Rootless Docker Toggle",
+  "description": "Start/stop/restart rootless Docker and toggle autostart from the top bar.",
+  "shell-version": ["46", "47", "48"],
+  "version": 2
+}
