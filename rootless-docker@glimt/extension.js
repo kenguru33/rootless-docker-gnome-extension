@@ -75,10 +75,22 @@ class Indicator extends PanelMenu.Button {
         super._init(0.0, 'Rootless Docker Toggle');
 
         // Icons
-        this._normalIcon = new St.Icon({
-            icon_name: 'package-x-generic-symbolic',
-            style_class: 'system-status-icon',
-        });
+       let icon;
+
+        try {
+            icon = new St.Icon({
+                gicon: Gio.icon_new_for_string(
+                    `${Me.path}/icons/docker-symbolic.svg`
+                ),
+            });
+        } catch {
+            icon = new St.Icon({
+                icon_name: 'package-x-generic-symbolic',
+            });
+        }
+
+this._normalIcon = icon;
+this._normalIcon.add_style_class_name('system-status-icon');
         this._refreshIcon = new St.Icon({
             icon_name: 'view-refresh-symbolic',
             style_class: 'system-status-icon',
